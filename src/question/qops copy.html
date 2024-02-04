@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+<head>
+<title>Quiz Application</title>
+<style>
+    #coolmenu{
+      border: 1px solid #ff86cd;
+      width: 230px;
+      
+      }
+      #coolmenu1{
+      border: 1px solid #ff86cd;
+      width: 680px;
+      height: 845px;
+      
+      }
+      #coolmenu a{
+      font: bold 13px solid jasmineupc;
+      padding: 2px;
+      display: block;
+      text-decoration: none;
+      border-bottom: 1px dashed #D8D8D8;
+      }
+      #coolmenu a:link{
+      color: #666666;
+      }
+      #coolmenu a:visited{
+      color: #666666;
+      }
+      
+      #coolmenu a:hover{
+      color: #000000;
+      background-color: rgb(255, 167, 202);
+      }
+
+      .boxB{
+      width: 682px;
+      height: 30px;
+      background-color: #040704;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#ffc1fa), color-stop(100%,#ff7dbe));
+      -webkit-border-top-left-radius: 15px;
+      -webkit-border-top-right-radius: 15px;
+      }
+      
+      .boxC{
+      width: 682px;
+      height: 8px;
+      background-color: #000000;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffc1f2), color-stop(100%,#ff7dcb));
+      -webkit-border-bottom-left-radius: 15px;
+      -webkit-border-bottom-right-radius: 15px;
+      
+      }
+
+      .boxdata{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 150px;
+      }
+      .boxdata_1{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 190px;
+      }
+      .boxdata_2{
+      margin-left: auto;
+      margin-right: auto;
+      width: 1000px;
+      height: 500px;
+      }
+      .boxdata6{
+      margin-left: auto;
+      margin-right: auto;
+      width: 630px;
+      height: 630px;
+      }
+      td{
+      font: bold 13px solid tahoma;
+      color: #666666;
+      }
+    </style>
+</head>
+<body>
+  <table cellpadding="0" cellspacing="0" align="right">
+    <tr>
+     <td height="9"></td>
+   </tr>
+ <tr>
+        <form>
+       
+            <font color = #FE4881> 1.มีพื้นฐานความรู้ดี แล้วสนุกกับการเรียนวิชาวิทยาศาสตร์ ? </font><br><br>
+						&nbsp&nbsp<input type="radio" name="question1" id="correct1" >มาก &nbsp&nbsp&nbsp
+						<input type="radio" name="question1" id="correct2">ปานกลาง &nbsp&nbsp&nbsp
+            <input type="radio" name="question1" id="correct3">น้อย &nbsp&nbsp&nbsp
+						<input type="radio" name="question1" id="correct4">น้อยที่สุด <br>
+						<br>
+
+						<font color = #FE4881> 2. มีความถนัดในการคิดคำนวณได้คล่อง ? </font><br><br>
+						&nbsp&nbsp<input type="radio" name="question2" id="correct1" >มาก &nbsp&nbsp&nbsp
+						<input type="radio" name="question2" id="correct2">ปานกลาง &nbsp&nbsp&nbsp
+            <input type="radio" name="question2" id="correct3">น้อย &nbsp&nbsp&nbsp
+						<input type="radio" name="question2" id="correct4">น้อยที่สุด <br>
+						<br>
+						
+						<font color = #FE4881> 3.ช่างสังเกต ชอบศึกษาค้นคว้า ทดลอง วิเคราะห์ ? </font><br><br>
+						&nbsp&nbsp<input type="radio" name="question3" id="correct1" >มาก &nbsp&nbsp&nbsp
+						<input type="radio" name="question3" id="correct2">ปานกลาง &nbsp&nbsp&nbsp
+            <input type="radio" name="question3" id="correct3">น้อย &nbsp&nbsp&nbsp
+						<input type="radio" name="question3" id="correct4">น้อยที่สุด <br>
+						<br>
+
+						
+						
+						<br>
+
+						<input type="submit" name="submit" value="ส่งแบบทดสอบ" onClick="result()">
+          </form>
+
+						<script type="text/javascript">
+        
+
+						function result()
+						{
+							var score=0;
+							if(document.getElementById('correct1').checked)
+								{	score+=3;
+								}
+							if(document.getElementById('correct2').checked)
+								{	score+=2;
+								}
+							if(document.getElementById('correct3').checked)
+								{	score+=1;
+								}
+							if(document.getElementById('correct4').checked)
+								{	score+=0;
+								}
+							
+						alert("คะแนนที่คุณได้คือ  "+score );
+          
+
+						// to print on browser
+						// document.write("Your score is: " +score);
+						}
+						</script>
+						</td>
+
+
+
+	</table>
+</body>
+</html>

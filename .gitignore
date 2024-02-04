@@ -1,0 +1,6 @@
+.env
+.DS_Store
+src/.DS_Store
+src/uploads/*
+src/lib/connect_db.php
+mysql-data

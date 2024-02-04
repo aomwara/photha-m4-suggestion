@@ -1,0 +1,178 @@
+
+    #coolmenu{
+      border: 1px solid #6b6fef;
+      width: 230px;
+      
+      }
+      /* Container for both images */
+.image-container {
+    position: relative;
+    width: 37%; /* Adjust the width and height according to your images */
+    height: 37%;
+}
+
+/* Default image */
+.default-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+/* Hover image (initially hidden) */
+.hover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect on container */
+.image-container:hover .hover-image {
+    opacity: 1; /* Show the hover image on hover */
+}
+
+      #coolmenu1{
+      border: 1px solid #6b6fef;
+      width: 650px;
+      height: 690px;
+      
+      }
+      #coolmenu a{
+      font: bold 13px solid ;
+      padding: 2px;
+      display: block;
+      text-decoration: none;
+      border-bottom: 1px dashed #D8D8D8;
+      }
+      #coolmenu a:link{
+      color: #666666;
+      }
+      #coolmenu a:visited{
+      color: #666666;
+      }
+      
+      #coolmenu a:hover{
+      color: #000000;
+      background-color: rgb(167, 167, 255);
+      }
+      
+      .boxH{
+      width: 232px;
+      height: 30px;
+      background-color: #040704;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c3ff), color-stop(100%,#7f84fd));
+      -webkit-border-top-left-radius: 15px;
+      -webkit-border-top-right-radius: 15px;
+      }
+      
+      .boxF{
+      width: 232px;
+      height: 8px;
+      background-color: #000000;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c3ff), color-stop(100%,#7f84fd));
+      -webkit-border-bottom-left-radius: 15px;
+      -webkit-border-bottom-right-radius: 15px;
+      
+      }
+      .boxA{
+      width: 232px;
+      height: 8px;
+      background-color: #000000;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c3ff), color-stop(100%,#7f84fd));
+      -webkit-border-bottom-left-radius: 15px;
+      -webkit-border-bottom-right-radius: 15px;
+     }
+      .boxB{
+      width: 652px;
+      height: 30px;
+      background-color: #040704;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c3ff), color-stop(100%,#7f84fd));
+      -webkit-border-top-left-radius: 15px;
+      -webkit-border-top-right-radius: 15px;
+      }
+      
+      .boxC{
+      width: 652px;
+      height: 8px;
+      background-color: #000000;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c1c3ff), color-stop(100%,#7f84fd));
+      -webkit-border-bottom-left-radius: 15px;
+      -webkit-border-bottom-right-radius: 15px;
+      
+      }
+
+      .boxdata{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 150px;
+      }
+      .boxdata_1{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 190px;
+      }
+      .boxdata_2{
+      margin-left: auto;
+      margin-right: auto;
+      width: 1000px;
+      height: 500px;
+      }
+      .boxdata2{
+
+      width: 230px;
+      height: 280px;
+      }
+      .boxdata20{
+
+      width: 230px;
+      height: 100px;
+      }
+      .boxdata21{
+
+      width: 230px;
+      height: 140px;
+      }
+      .boxdata22{
+
+      width: 230px;
+      height: 120px;
+      }
+      .boxdata23{
+      
+      width: 230px;
+      height: 170px;
+      }
+      .boxdata3{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 170px;
+      }
+      .boxdata4{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 170px;
+      }
+      .boxdata5{
+      margin-left: auto;
+      margin-right: auto;
+      width: 230px;
+      height: 120px;
+      }
+      .boxdata6{
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+      height: 600px;
+      }
+      td{
+      font: bold 13px solid tahoma;
+      color: #666666;
+      }
