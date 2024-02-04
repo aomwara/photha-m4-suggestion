@@ -2,7 +2,7 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_punch = "localhost";
+$hostname_punch = "smos_database";
 $database_punch = "smos";
 $username_punch = "root";
 $password_punch = "password1234";

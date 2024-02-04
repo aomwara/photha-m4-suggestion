@@ -2,7 +2,7 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-$hostname_pp = "localhost";
+$hostname_pp = "smos_database";
 $database_pp = "smos";
 $username_pp = "root";
 $password_pp = "password1234";
