@@ -5,6 +5,10 @@
 <head>
     <link rel="stylesheet" href="style.css" />
     <title>Quiz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -120,55 +124,63 @@
 
     </td>
     </tr>
+
     </table>
+
+
 </body>
 
 </html>
 <?php
+
+session_start();
+echo "id" . $_SESSION['user_id'];
+
+
 if (isset(
-	$_POST['question1'],
-	$_POST['question2'],
-	$_POST['question3'],
-	$_POST['question4'],
-	$_POST['question5'],
-	$_POST['question6'],
-	$_POST['question7'],
-	$_POST['question8'],
-	$_POST['question9'],
-	$_POST['question10'],
-	$_POST['question11'],
-	$_POST['question12']
+    $_POST['question1'],
+    $_POST['question2'],
+    $_POST['question3'],
+    $_POST['question4'],
+    $_POST['question5'],
+    $_POST['question6'],
+    $_POST['question7'],
+    $_POST['question8'],
+    $_POST['question9'],
+    $_POST['question10'],
+    $_POST['question11'],
+    $_POST['question12']
 )) {
-	require_once 'connect.php';
+    require_once '../libs/connect-db.php';
 
-	$qs1 = $_POST['question1'];
-	$qs2 = $_POST['question2'];
-	$qs3 = $_POST['question3'];
-	$qs4 = $_POST['question4'];
-	$qs5 = $_POST['question5'];
-	$qs6 = $_POST['question6'];
-	$qs7 = $_POST['question7'];
-	$qs8 = $_POST['question8'];
-	$qs9 = $_POST['question9'];
-	$qs10 = $_POST['question10'];
-	$qs11 = $_POST['question11'];
-	$qs12 = $_POST['question12'];
-	$sum1 = $qs1 + $qs2 + $qs3 + $qs4 + $qs5 + $qs6 + $qs7 + $qs8 + $qs9 + $qs10 + $qs11 + $qs12;
+    $qs1 = $_POST['question1'];
+    $qs2 = $_POST['question2'];
+    $qs3 = $_POST['question3'];
+    $qs4 = $_POST['question4'];
+    $qs5 = $_POST['question5'];
+    $qs6 = $_POST['question6'];
+    $qs7 = $_POST['question7'];
+    $qs8 = $_POST['question8'];
+    $qs9 = $_POST['question9'];
+    $qs10 = $_POST['question10'];
+    $qs11 = $_POST['question11'];
+    $qs12 = $_POST['question12'];
+    $sum1 = $qs1 + $qs2 + $qs3 + $qs4 + $qs5 + $qs6 + $qs7 + $qs8 + $qs9 + $qs10 + $qs11 + $qs12;
 
-	//  session_start();
-	$stmt = $conn->prepare("INSERT INTO tbl_assessment(score1)VALUES(:score1)");
-	$stmt->bindParam(':score1', $sum1, PDO::PARAM_INT);
-	$result = $stmt->execute();
-	$user_id = $conn->lastInsertId();
-	echo $user_id;
-	$conn = null;
-
-	if ($result) {
-		$_SESSION['user_id'] = $user_id;
-		echo "บันทึกคะแนนสำเร็จแล้ว";
-	} else {
-		echo "เกิดข้อผิดพลาด";
-	}
+    //  session_start();
+    $stmt = $conn->prepare("INSERT INTO tbl_assessment(score1,user_id)VALUES(:score1,:user_id)");
+    $stmt->bindParam(':score1', $sum1, PDO::PARAM_INT);
+    $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+    $result = $stmt->execute();
+    if ($result) {
+        echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย', 'success').then(function() {
+            window.location = 'q2.php?user_id=$user_id';
+        });</script>";
+    } else {
+        echo "<script>swal('มีบางอย่างผิดพลาด!', 'กรุณาลองใหม่อีกครั้ง', 'error').then(function() {
+            window.location = 'q1.php';
+        });</script>";
+    }
 }
 
 ?>
