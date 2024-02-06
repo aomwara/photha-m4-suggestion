@@ -111,11 +111,11 @@
                                         <div>
                                             <h3> โปรด login เพื่อเข้าชมเว็บไซต์</h3>
                                             <p align="center">
-                                                <label for="username">Username</label>
+                                                <label for="username">ชื่อผู้ใช้งาน</label>
                                                 <input type="text" name="username" id="username" />
                                                 <br />
                                                 <br />
-                                                <label for="Password">Password</label>
+                                                <label for="Password">รหัสผ่าน</label>
                                                 <input type="password" name="password" id="Password" />
                                             </p>
                                             <p align="center">
