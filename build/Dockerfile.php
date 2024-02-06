@@ -11,4 +11,4 @@ RUN chown smos:smos /var/www/html
 
 WORKDIR /var/www/html
 
-RUN docker-php-ext-install mysql && docker-php-ext-enable mysql
+RUN docker-php-ext-install pdo pdo_mysql mysql && docker-php-ext-enable mysql
