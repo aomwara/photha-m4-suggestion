@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -5,13 +6,31 @@
 <head>
     <link rel="stylesheet" href="style.css" />
     <title>Quiz</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
 <body>
+    <?php
+    if ($_SESSION['user_id'] == null) {
+        echo "<h3>กรุณาเข้าสู่ระบบก่อนทำแบบทดสอบ</h3>";
+        exit();
+    } ?>
+
+    <?php
+    require_once '../libs/connect-db.php';
+    $stmtq = $conn->prepare("SELECT * FROM tbl_assessment WHERE user_id=:user_id and score1 != 0");
+    $stmtq->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+    $stmtq->execute();
+    $data = $stmtq->fetch(PDO::FETCH_ASSOC);
+    if ($data) {
+        echo "คุณได้ทำแบบทดสอบนี้ไปแล้ว คะแนนคือ" . $data['score1'] . "," . $data['score2'] . "," . $data['score3'] . "," . $data['score4'] . "," . $data['score5'] . "<br/>ไปทำแบบทดสอบถัดไป";
+        echo "<a href='q2.php?user_id=" . $_SESSION['user_id'] . "'>คลิกที่นี่</a>";
+        echo '<br/>';
+        echo "ต้องการล้างคะแนนทั้งหมดแล้วเริ่มทำใหม่หรือไม่? ถ้าต้องการ <a href='clear.php'>คลิกที่นี่</a>";
+        exit();
+    }
+    ?>
     <br>
     <td><b>
             <font size="4" color="#020A35">แบบทดสอบการสำรวจตนเอง</font>
@@ -22,9 +41,6 @@
         </tr>
         <tr>
             <table align="right">
-
-
-
                 <br>
 
                 <h4>ความสนใจในแผนการเรียนวิทยาศาสตร์ คณิตศาสตร์</h4>
@@ -133,8 +149,6 @@
 </html>
 <?php
 
-session_start();
-echo "id" . $_SESSION['user_id'];
 
 
 if (isset(
@@ -151,7 +165,7 @@ if (isset(
     $_POST['question11'],
     $_POST['question12']
 )) {
-    require_once '../libs/connect-db.php';
+
 
     $qs1 = $_POST['question1'];
     $qs2 = $_POST['question2'];
@@ -167,13 +181,13 @@ if (isset(
     $qs12 = $_POST['question12'];
     $sum1 = $qs1 + $qs2 + $qs3 + $qs4 + $qs5 + $qs6 + $qs7 + $qs8 + $qs9 + $qs10 + $qs11 + $qs12;
 
-    //  session_start();
+
     $stmt = $conn->prepare("INSERT INTO tbl_assessment(score1,user_id)VALUES(:score1,:user_id)");
     $stmt->bindParam(':score1', $sum1, PDO::PARAM_INT);
     $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
     $result = $stmt->execute();
     if ($result) {
-        echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย', 'success').then(function() {
+        echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย ไปแบบทดสอบถัดไป', 'success').then(function() {
             window.location = 'q2.php?user_id=$user_id';
         });</script>";
     } else {

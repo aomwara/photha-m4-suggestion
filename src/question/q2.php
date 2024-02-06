@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -5,12 +6,28 @@
 <head>
     <link rel="stylesheet" href="style.css" />
     <title>Quiz</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+    <?php
+    if ($_SESSION['user_id'] == null) {
+        echo "<h3>กรุณาเข้าสู่ระบบก่อนทำแบบทดสอบ</h3>";
+        exit();
+    } ?>
+
+    <?php
+    require_once '../libs/connect-db.php';
+    $stmtq = $conn->prepare("SELECT * FROM tbl_assessment WHERE user_id=:user_id AND score2 != 0");
+    $stmtq->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+    $stmtq->execute();
+    $data = $stmtq->fetch(PDO::FETCH_ASSOC);
+    if ($data) {
+        echo "[2] คุณได้ทำแบบทดสอบนี้ไปแล้ว คะแนนคือ" . $data['score2'] . "กรุณาไปทำแบบทดสอบถัดไป";
+        echo "<a href='q3.php?user_id=" . $_SESSION['user_id'] . "'>คลิกที่นี่</a>";
+        exit();
+    }
+    ?>
     <br>
     <td><b>
             <font size="4" color="#020A35">แบบทดสอบการสำรวจตนเอง</font>
@@ -134,10 +151,6 @@
 
 </html>
 <?php
-require_once '../libs/connect-db.php';
-session_start();
-echo "id" . $_SESSION['user_id'];
-
 if (isset(
     $_POST['question13'],
     $_POST['question14'],
@@ -178,8 +191,8 @@ if (isset(
     $conn = null;
 
     if ($result) {
-        echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย', 'success').then(function() {
-            window.location = 'q2.php';
+        echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย ไปแบบทดสอบถัดไป', 'success').then(function() {
+            window.location = 'q3.php';
         });</script>";
     } else {
         echo "<script>swal('มีบางอย่างผิดพลาด!', 'กรุณาลองใหม่อีกครั้ง', 'error').then(function() {
