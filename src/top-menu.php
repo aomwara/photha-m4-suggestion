@@ -25,14 +25,20 @@
                     หน้าหลัก
                 </a>
             </td>
+
             <td>
-                <a class="link" href="https://www.photha.ac.th/" target="_blank">
-                    โรงเรียนโพธาวัฒนาเสนี
+                <a class="link" href="login.php">
+                    เข้าสู่ระบบ
                 </a>
             </td>
             <td>
-                <a class="link" href="index.php">
-                    ตอนนี้เข้าสายไหนได้บ้างนะ
+                <a class="link" href="register.php">
+                    สมัครสมาชิก
+                </a>
+            </td>
+            <td>
+                <a class="link" href="https://www.photha.ac.th/" target="_blank">
+                    โรงเรียนโพธาวัฒนาเสนี
                 </a>
             </td>
         </tr>

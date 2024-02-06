@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>
-                    <iframe src="frame.html" width="100%" height="1000" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="frame.html" width="100%" height="1500" frameborder="0" scrolling="no"></iframe>
                 </td>
             </tr>
         </table>

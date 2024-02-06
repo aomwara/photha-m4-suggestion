@@ -29,69 +29,112 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>HOME</title>
     <style>
-        body {
-            background-color: #cde2ff;
-        }
+    body {
+        background-color: #cde2ff;
+    }
 
-        .tui {
-            width: 950px;
-            height: auto;
-            background-color: #FFFFFF;
-            box-shadow: 0 0 3px 3px #999999;
-            -moz-box-shadow: 0px 0px 8px #999999;
-            -webkit-box-shadow: 0px 0px 8px #999999;
-            border-radius: 3px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-        }
+    .tui {
+        width: 950px;
+        height: auto;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 3px 3px #999999;
+        -moz-box-shadow: 0px 0px 8px #999999;
+        -webkit-box-shadow: 0px 0px 8px #999999;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+    .table-main {
+        background-color: #FFFFFF;
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: 0 0 3px 3px #999999;
+    }
+
+    .tui {
+        width: 950px;
+        height: auto;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 3px 3px #999999;
+        -moz-box-shadow: 0px 0px 8px #999999;
+        -webkit-box-shadow: 0px 0px 8px #999999;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
     </style>
-</head>
-<body bgcolor="#cde2ff">
-    <form id="form1" name="form1" method="POST" action="Connections/pp.php">
-    <p align="center"><img src="img/bn.jpg" width="1000" height="300" alt="p"/></p>
-  <marquee bgcolor="#FFF8BC" >
-  Welcome to Website
-  </marquee>
-  <div>
-    <div>
-      <div align="center">
-        <h3><strong>เว็บไซต์เพื่อช่วยในการตัดสินใจเลือกแผนการเรียนต่อระดับชั้นมัธยมศึกษาปีที่ 4 </strong></h3>
-        <h3><strong>โรงเรียนโพธาวัฒนาเสนี</strong></h3>
-        <p></p>
-        <div>
-          <div>
-            <h3> โปรด login เพื่อเข้าชมเว็บไซต์</h3>
-            <p align="center">
-              <label for="username">Username</label>
-              <input type="text" name="username" id="username" />
-              <br />
-              <br />
-              <label for="Password">Password</label>
-              <input type="password" name="password" id="Password" />
-            </p>
-            <p align="center">
-              <input type="submit" name="login" id="button2" value="login" />
-            </p>
-            <p align="center"><a href="rregister.php">สมัครสมาชิก</a></p>
-            <p>&nbsp;</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p align="center">&nbsp;</p>
-  <p align="center">&nbsp;</p>
-  <div>
-    <div>
-      <div align="center"></div>
-    </div>
-  </div>
 
-    </form>
+</head>
+
+<body>
+    <center>
+        <table width="70%" class="table-main">
+            <tr>
+                <td>
+                    <?php require_once('./banner.php'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <?php require_once('./top-menu.php'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form id="form1" name="form1" method="POST" action="Connections/pp.php">
+
+                        <marquee bgcolor="#FFF8BC">
+                            Welcome to Website
+                        </marquee>
+                        <div>
+                            <div>
+                                <div align="center">
+                                    <h3><strong>เว็บไซต์เพื่อช่วยในการตัดสินใจเลือกแผนการเรียนต่อระดับชั้นมัธยมศึกษาปีที่
+                                            4 </strong>
+                                    </h3>
+                                    <h3><strong>โรงเรียนโพธาวัฒนาเสนี</strong></h3>
+                                    <p></p>
+                                    <div>
+                                        <div>
+                                            <h3> โปรด login เพื่อเข้าชมเว็บไซต์</h3>
+                                            <p align="center">
+                                                <label for="username">Username</label>
+                                                <input type="text" name="username" id="username" />
+                                                <br />
+                                                <br />
+                                                <label for="Password">Password</label>
+                                                <input type="password" name="password" id="Password" />
+                                            </p>
+                                            <p align="center">
+                                                <input type="submit" name="login" id="button2" value="login" />
+                                            </p>
+                                            <p align="center"><a href="register.php">สมัครสมาชิก</a></p>
+                                            <p>&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p align="center">&nbsp;</p>
+                        <p align="center">&nbsp;</p>
+                        <div>
+                            <div>
+                                <div align="center"></div>
+                            </div>
+                        </div>
+
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
+
 </html>
