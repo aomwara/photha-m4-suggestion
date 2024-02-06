@@ -1,51 +1,51 @@
 version: "3"
 
 services:
-  smos_nginx:
+  photha_nginx:
     build:
       context: ./build
       dockerfile: Dockerfile.nginx
-    container_name: smos_nginx
+    container_name: photha_nginx
     restart: always
     ports:
       - "80:80"
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
-      - smos_php
-      - smos_database
+      - photha_php
+      - photha_database
 
-  smos_php:
+  photha_php:
     build:
       context: ./build
       dockerfile: Dockerfile.php
-    container_name: smos_php
+    container_name: photha_php
     restart: always
     volumes:
       - ./src:/var/www/html:delegated
     expose:
       - "9000"
 
-  smos_database:
+  photha_database:
     image: mariadb:10.5.8
-    container_name: smos_database
+    container_name: photha_database
     restart: always
     volumes:
       - ./mysql-data:/var/lib/mysql
-      - ./database/smos_db.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./database/photha_db.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
       MYSQL_ROOT_PASSWORD: "password1234"
-      MYSQL_DATABASE: smos
+      MYSQL_DATABASE: photha
     expose:
       - "3306"
 
-  smos_dba:
+  photha_dba:
     depends_on:
-      - smos_database
+      - photha_database
     image: phpmyadmin/phpmyadmin
-    container_name: smos_dba
+    container_name: photha_dba
     restart: always
     ports:
       - "8081:80"
     environment:
-      PMA_HOST: smos_database
+      PMA_HOST: photha_database

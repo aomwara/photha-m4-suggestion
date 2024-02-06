@@ -35,9 +35,6 @@
                               <label><input type="reset" name="reset" value="ยกเลิก">
                               </label>
 
-                              <label>
-                              <input type="button" onclick.window.location="index.html" value="ย้อนกลับ">
-                              </label>
                            </p>
                         </form>
                         </font > 

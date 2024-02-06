@@ -1,17 +1,15 @@
 <?php
-$servername = "localhost";
+$servername = "photha_database";
 $username = "root";
-$password = "12345678";
+$password = "password1234";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=pp;charset=utf8", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   //echo "Connected successfully";
-} catch(PDOException $e) {
+} catch (PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
-    date_default_timezone_set('Asia/Bangkok');
-?>
-
+date_default_timezone_set('Asia/Bangkok');

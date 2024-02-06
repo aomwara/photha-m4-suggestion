@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2024 at 01:59 AM
+-- Generation Time: Feb 06, 2024 at 02:46 PM
 -- Server version: 5.7.15-log
 -- PHP Version: 5.6.26
 
@@ -57,7 +57,9 @@ VALUES (1, 'admin', '1234', 'hello'),
     (3, 'tt', '1234', 'punch'),
     (4, 'rr', '1234', 'punch'),
     (5, 'photha', '1234', 'punch'),
-    (6, 'pp', '1234', 'photha');
+    (6, 'pp', '1234', 'photha'),
+    (7, 'ff', '1234', 'punch'),
+    (8, 'pu', '1234', 'punch');
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,7 @@ VALUES (1, 'admin', '1234', 'hello'),
 --
 
 CREATE TABLE `tbl_assessment` (
-    `user_id` int(5) NOT NULL, `score1` int(1) NOT NULL, `score2` int(1) NOT NULL, `score3` int(1) NOT NULL, `score4` int(1) NOT NULL, `score5` int(1) NOT NULL, `dateCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    `user_id` int(5) NOT NULL, `score1` int(1) NOT NULL DEFAULT '0', `score2` int(1) NOT NULL DEFAULT '0', `score3` int(1) NOT NULL DEFAULT '0', `score4` int(1) NOT NULL DEFAULT '0', `score5` int(1) NOT NULL DEFAULT '0', `dateCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 --
@@ -78,28 +80,10 @@ INSERT INTO
         `user_id`, `score1`, `score2`, `score3`, `score4`, `score5`, `dateCreate`
     )
 VALUES (
-        1, 36, 0, 0, 0, 0, '2024-01-30 12:03:31'
+        1, 36, 0, 0, 0, 0, '2024-02-06 14:21:03'
     ),
     (
-        2, 36, 0, 0, 0, 0, '2024-01-30 12:07:16'
-    ),
-    (
-        3, 36, 0, 0, 0, 0, '2024-01-30 12:11:34'
-    ),
-    (
-        4, 0, 36, 0, 0, 0, '2024-01-30 12:14:57'
-    ),
-    (
-        5, 36, 0, 0, 0, 0, '2024-01-30 12:15:32'
-    ),
-    (
-        6, 28, 0, 0, 0, 0, '2024-01-31 09:33:23'
-    ),
-    (
-        7, 25, 0, 0, 0, 0, '2024-01-31 10:11:25'
-    ),
-    (
-        8, 36, 0, 0, 0, 0, '2024-02-03 15:13:58'
+        2, 36, 0, 0, 0, 0, '2024-02-06 14:40:16'
     );
 
 -- --------------------------------------------------------
@@ -169,12 +153,12 @@ ALTER TABLE `userr` ADD PRIMARY KEY (`user_id`);
 -- AUTO_INCREMENT for table `registerr`
 --
 ALTER TABLE `registerr`
-MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 7;
+MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 9;
 --
 -- AUTO_INCREMENT for table `tbl_assessment`
 --
 ALTER TABLE `tbl_assessment`
-MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 9;
+MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 3;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -185,6 +169,16 @@ MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 --
 ALTER TABLE `userr`
 MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_assessment`
+--
+ALTER TABLE `tbl_assessment`
+ADD CONSTRAINT `tbl_assessment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `registerr` (`user_id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
 ;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
