@@ -179,7 +179,7 @@ if (isset(
 
     if ($result) {
         echo "<script>swal('สำเร็จ!', 'ทำแบบทดสอบเรียบร้อย', 'success').then(function() {
-            window.location = '/index.php';
+            window.location = 'q2.php';
         });</script>";
     } else {
         echo "<script>swal('มีบางอย่างผิดพลาด!', 'กรุณาลองใหม่อีกครั้ง', 'error').then(function() {
